@@ -1,0 +1,1 @@
+{"version":2,"languages":{"python3-poetry":{"specfileHash":"40ce0cadc4833d7033d882466e290575","lockfileHash":"7715ba8e3c5eba85f2fb26cec13cd676","guessedImports":["pandas","beautifulsoup4","numpy","nltk","Flask","scikit-learn","matplotlib","joblib","requests"],"guessedImportsHash":"b5fbf90f4d061dad0bf065f2092801b7"}}}

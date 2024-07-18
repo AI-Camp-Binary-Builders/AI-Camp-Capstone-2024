@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>The Real Deal</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        header.masthead {
+            background: #0d6efd;
+        }
+
+        h1 {
+            padding-top: 40px;
+        }
+
+        .fix-px {
+            width: 500px;
+            background-size: 110% 100%;
+            background-position: center;
+        }
+
+        .blur-nav {
+            padding: 20px 10px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            /* For Safari support */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation-->
+    <nav class="navbar fixed-top navbar-expand-lg shadow bg-body-tertiary transbox blur-nav ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-journal-text pe-1"></i>The Real Deal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li <li class="nav-item">
+                    <a class="nav-link active" href="#vision">Our Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#timeline">Timeline</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link active" href="#aboutus">About</a>
+                    </li>
+                </ul>
+            </div </div>
+    </nav>
+
+    <!-- Masthead-->
+    <header id="home" class="masthead p-10">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading-->
+                        <h1 class="mb-5">Detect Fake and Real articles with just one click!</h1>
+                        <!-- Signup form-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form class="form-subscribe" id="contactForm" method="POST" action="/results">
+                            <!-- Email address input-->
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control form-control-lg" id="articleURL" required name="articleURL"
+                                        type="url" placeholder="Enter URL" data-sb-validations="required,url" name="articleURL" />
+                                    <!--<div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">
+                                        Email Address is required.</div>
+                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email
+                                        Address Email is not valid.</div>-->
+                                </div>
+                            </div>
+                            <div class="col-auto mt-3"><button class="btn btn-primary btn-lg" id="submitButton"
+                                    type="submit">Enter</button></div>
+                            <!-- Submit success message (CHANGE TO SHOW OUTPUT MESSAGE)-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    <p>To activate this form, sign up at</p>
+                                    <a class="text-white"
+                                        href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage">
+                                <div class="text-center text-danger mt-3">Error sending message!</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Page-->
+    <section id="vision" class="bg-light">
+        <div class="container">
+            <h1 class="text-center">Our Product</h1>
+            <hr>
+            <p class="container p-0 text-left mt-10"><br>
+                We created our product to revolutionize how people discern real from fake news using AI. We
+                understand the challenges faced by individuals in navigating a landscape filled with misinformation.
+                By leveraging AI and data science, we aim to empower users with accurate and timely detection of
+                fake articles, thereby streamlining their access to truthful information and ensuring confidence in
+                what they read. Our goal is to create a transformative tool that enhances efficiency and sets new
+                standards for transparency and reliability in media consumption.</p>
+            <p class="container p-0 text-left mb-10">Our website will accept newspaper articles and output whether
+                they
+                are
+                real or fake, integrating various types of visualizations for comprehensive analysis and providing
+                clear insights into news credibility. We are dedicated to creating a user-friendly website for easy
+                navigation and accessibility. We hope that our project will significantly enhance information
+                verification capabilities for all users.<br></p>
+        </div>
+        <br>
+    </section>
+    <!-- Image Showcases-->
+    <section class="showcase mt-3">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"
+                    style="background-image: url('assets/img/log-reg-stats2.png');  background-position: center; background-size: contain; background-repeat: no-repeat; width: 50%; height: 50%;">
+                </div>
+                <div class=" col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Why Our Model</h2>
+                    <p class="lead mb-0">For our project, we chose a Logistic Regression Model to best suit our AI.
+                        After training on credible data, this model yielded the best results in being able to accurately
+                        predict whether an article is fake or real. Logistic Regression is a statistical method used for
+                        predicting a binary outcome. In our case, we needed our AI to output a binary outcome: Real or
+                        Fake. </p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-5 text-white showcase-img"
+                    style="background-image: url('assets/img/pie.png'); background-position: center; background-size: contain; background-repeat: no-repeat; width: 50%; height: 50%;">
+                </div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>The Problem</h2>
+                    <p class="lead mb-0">Everyday, a greater number of "fake" or satirical news is created and it is
+                        getting hard to differentiate
+                        between real and fake news. We believe people should have access to news while also having
+                        confidence in its credibility, so we have created a model to
+                        predict whether a specific news/article is fake or true. </p>
+                </div>
+            </div>
+            <!-- Thought we won't need this - Alex :) -->
+
+            <!-- <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"
+                    style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Easy to Use & Customize</h2>
+                    <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand
+                        some deeper customization options. Out of the box, just add your content and images, and your
+                        new landing page will be ready to go!</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+
+    <!--timeline start-->
+
+    <section id="timeline" class="page-section bg-light">
+        <div class="container ">
+            <div class="text-center">
+                <h1 class="section-heading">Timeline</h1>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <!-- Section: Timeline -->
+            <section class="py-5">
+                <ul class="timeline">
+                    <li class="timeline-item mb-5">
+                        <h5 class="fw-bold">Picking a Dataset</h5>
+                        <p class="text-muted">
+                            We sourced our dataset from the Kaggle website. Picking a reliable dataset with relevant and
+                            high-quality data is crucial for the success of any machine learning project.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item mb-5">
+                        <h5 class="fw-bold">EDA</h5>
+                        <p class="text-muted">
+                            We used many techiniques to clean and analyze our dataset.Techniques such as lemmetization,
+                            vectorization, and TF-IDF were used to clean and adjust our dataset to help the accuracy of
+                            our model.
+
+                        </p>
+                    </li>
+
+                    <li class="timeline-item mb-5">
+                        <h5 class="fw-bold">Training and Testing</h5>
+                        <p class="text-muted">
+                            After we had picked our model, we trained it with high-quality data to find the right the
+                            balance, doing our best to avoid issues such as overfitting or underfitting. This approach
+                            ensured that
+                            our model not only learned effectively from the data but also generalized well to new,
+                            unseen examples. This practice led us to produce reccomendations regarding the integrity of
+                            an article.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item mb-5">
+                        <h5 class="fw-bold">Buidling our Website</h5>
+                        <p class="text-muted">
+                            We worked to create a website to host our model and provide a user-friendly interface. Our
+                            goal is to deliver results with a minimum accuracy of 78%, to ensure reliable information is
+                            delivered to our users.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            <!-- Section: Timeline -->
+        </div>
+    </section>
+    <!-- Meet the Team-->
+    <section id="aboutus" class="testimonials text-center">
+        <div class="container">
+            <h2 class="mb-5">Meet the Team</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/sans_img.jpg" alt="..." />
+                        <h5>Sanskruti B.</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/ash_img.jpg" alt="..." />
+                        <h5>Ashwanth </h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/alex-img.png"
+                            alt="An image of me :D" />
+                        <h5>Alex A.</h5>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/viraj-img.jpg" alt="..." />
+                        <h5>Viraj S.</h5>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/Selfie_ahh.jpg" alt="..." />
+                        <h5>Elizabeth C.</h5>
+                        <p class="font-weight-light mb-0">":)"</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src="assets/img/testmonials-3.jpg" alt="..." />
+                        <h5>Samarth K.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section></section>
+    <!-- Footer-->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; Binary Builders 2024. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item me-4">
+                            <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item me-4">
+                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

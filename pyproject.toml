@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "repl-html-frontend-binary-builders"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "repl_html_frontend_binary_builders"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.3"
+pandas = "^2.2.2"
+requests = "^2.32.3"
+scikit-learn = "^1.5.1"
+beautifulsoup4 = "^4.12.3"
+joblib = "^1.4.2"
+matplotlib = "^3.9.1"
+nltk = "^3.8.1"
+numpy = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
