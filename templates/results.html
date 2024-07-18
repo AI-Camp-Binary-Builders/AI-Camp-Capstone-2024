@@ -43,12 +43,10 @@
 
         .fake-news-image {
             transition: all 0.5s ease;
-            display: flex;
-            justify-self: center;
-            align-self: center;
         }
 
         .fake-news-image.animated {
+            margin: 0 auto;
             animation: shake 0.5s;
             animation-iteration-count: infinite;
             width: 1000px;
@@ -95,9 +93,7 @@
                         <div>
                             {% if is_fake %}
                             <h2>This article is likely to be fake news!</h2>
-                            <div id="fakeNewsContainer" class="image-container">
-                                <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
-                            </div>
+                            <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
                             <script>
                                 window.onload = function() {
                                     var img = document.getElementById('fakeNewsImage');
