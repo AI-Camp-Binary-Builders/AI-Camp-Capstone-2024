@@ -64,6 +64,11 @@
                         <!-- Page heading-->
                         <h1 class="mb-5">Results:</h1>
                         <div>
+                            {% if is_fake %}
+                            <h2>This article is likely to be fake news!</h2>
+                            <img src="{{ url_for('static', filename='static/assets/img/fake.jpg') }}" alt="Fake News Alert">
+                            {% endif %}
+
                             <p>Analyzed URL: {{ url }}</p>
                             <p>The news is... {{ result }}</p>
                             <!-- <script>

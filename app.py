@@ -116,16 +116,14 @@ def results():
         return render_template('index.html')
     else:
         url = request.form.get("articleURL")
-        print(url)
         article_content = scrape_article(url)
-        print(article_content)
         if article_content:
-            # Use your existing predict_fake_news function with model and vectorizer
             prediction = predict_fake_news(article_content, model, vectorizer)
             result = "Real" if prediction == 1 else "Fake"
-            return render_template('results.html', url=url, result=result)
+            is_fake = prediction == 0  # Add this line
+            return render_template('results.html', url=url, result=result, is_fake=is_fake)  # Add is_fake here
         else:
-            return render_template('results.html', url=url, result=result)
+            return render_template('results.html', url=url, result="Unable to analyze")
 
 
 
