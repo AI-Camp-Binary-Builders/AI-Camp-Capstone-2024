@@ -58,6 +58,16 @@
             overflow: hidden;
             transition: all 0.5s ease;
         }
+
+        .image-container.animated {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+            transform: scale(4);
+        }
+
+        .image-container.animated .fake-news-image {
+            filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(330deg);
+        }
     </style>
 </head>
 
@@ -98,7 +108,7 @@
                         <div>
                             {% if is_fake %}
                             <h2>This article is likely to be fake news!</h2>
-                            <div id="fakeNewsContainer">
+                            <div id="fakeNewsContainer" class="image-container">
                                 <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
                             </div>
                             <script>
