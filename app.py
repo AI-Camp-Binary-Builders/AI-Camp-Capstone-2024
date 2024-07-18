@@ -13,8 +13,8 @@ import string
 import joblib
 import os
 
-nltk.download('punkt', quiet=True)
-nltk.download('wordnet', quiet=True)
+nltk.download("punkt", quiet=True)
+nltk.download("wordnet", quiet=True)
 
 app = Flask(__name__)
 
@@ -30,38 +30,40 @@ def load_model(model_path, vectorizer_path):
 def scrape_article(url):
     try:
         headers = {
-            'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
         response = requests.get(url, headers=headers, timeout=10)
-        print(response,"%%%%%%%")
+        print(response, "%%%%%%%")
         response.raise_for_status()
-        soup = BeautifulSoup(response.content, 'html.parser')
+        soup = BeautifulSoup(response.content, "html.parser")
 
         # Try multiple methods to extract content
         content = ""
 
         # Method 1: Look for common article containers
         for container in [
-                'article', 'main', 'div[class*="content"]',
-                'div[class*="article"]', 'div[id*="content"]',
-                'div[id*="article"]'
+            "article",
+            "main",
+            'div[class*="content"]',
+            'div[class*="article"]',
+            'div[id*="content"]',
+            'div[id*="article"]',
         ]:
             if content:
                 break
             elements = soup.select(container)
             if elements:
-                content = elements[0].get_text(strip=True, separator=' ')
+                content = elements[0].get_text(strip=True, separator=" ")
 
         # Method 2: If still empty, get all paragraph text
         if not content:
-            paragraphs = soup.find_all('p')
-            content = ' '.join([p.get_text(strip=True) for p in paragraphs])
+            paragraphs = soup.find_all("p")
+            content = " ".join([p.get_text(strip=True) for p in paragraphs])
 
         # Method 3: If still empty, get all div text
         if not content:
-            divs = soup.find_all('div')
-            content = ' '.join([div.get_text(strip=True) for div in divs])
+            divs = soup.find_all("div")
+            content = " ".join([div.get_text(strip=True) for div in divs])
 
         # Final check
         if content:
@@ -77,9 +79,9 @@ def scrape_article(url):
 # Function to clean text
 def clean_text(text):
     # Remove extra whitespace
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r"\s+", " ", text)
     # Remove special characters, keeping basic punctuation
-    text = re.sub(r'[^a-zA-Z0-9\s.,!?]', '', text)
+    text = re.sub(r"[^a-zA-Z0-9\s.,!?]", "", text)
     return text.strip()
 
 
@@ -89,7 +91,7 @@ def preprocess_text(text):
     tokens = [token for token in tokens if token not in string.punctuation]
     lemmatizer = WordNetLemmatizer()
     tokens = [lemmatizer.lemmatize(token) for token in tokens]
-    return ' '.join(tokens)
+    return " ".join(tokens)
 
 
 # Function to predict fake news
@@ -101,35 +103,35 @@ def predict_fake_news(text, model, vectorizer):
 
 
 # Load model and vectorizer
-model, vectorizer = load_model('model/model.pkl', 'model/vectorizer.pkl')
+model, vectorizer = load_model("model/model.pkl", "model/vectorizer.pkl")
 
-@app.route('/', methods=["POST","GET"])
+
+@app.route("/", methods=["POST", "GET"])
 def index():
-    return render_template('index.html')
+    return render_template("index.html")
 
 
 # Route for home page
-@app.route('/results', methods=["POST","GET"])
+@app.route("/results", methods=["POST", "GET"])
 def results():
     print(request)
     if request.method == "GET":
-        return render_template('index.html')
+        return render_template("index.html")
     else:
         url = request.form.get("articleURL")
         article_content = scrape_article(url)
+        print(article_content)
         if article_content:
             prediction = predict_fake_news(article_content, model, vectorizer)
             result = "Real" if prediction == 1 else "Fake"
             is_fake = prediction == 0  # Add this line
-            is_real = prediction == 1
-            return render_template('results.html', url=url, result=result, is_fake=is_fake, is_real=is_real)  # Add is_fake here
+            return render_template('results.html', url=url, result=result, is_fake=is_fake)  # Add is_fake here
         else:
-            return render_template('results.html', url=url, result="Unable to analyze")
-
+            return render_template("results.html", url=url, result="Unable to analyze")
 
 
 # Route for results page
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)
