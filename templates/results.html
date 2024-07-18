@@ -43,6 +43,9 @@
 
         .fake-news-image {
             transition: all 0.5s ease;
+            display: flex;
+            justify-self: center;
+            align-self: center;
         }
 
         .fake-news-image.animated {
@@ -59,15 +62,7 @@
             transition: all 0.5s ease;
         }
 
-        .image-container.animated {
-            animation: shake 0.5s;
-            animation-iteration-count: infinite;
-            transform: scale(4);
-        }
-
-        .image-container.animated .fake-news-image {
-            filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(330deg);
-        }
+        
     </style>
 </head>
 
