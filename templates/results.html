@@ -45,7 +45,17 @@
             100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
 
+        header.masthead {
+            background: #0d6efd;
+        }
+
         .fake-news-image {
+            transition: all 0.5s ease;
+            display: none;
+            justify-self: center;
+        }
+
+        .real-news-image {
             transition: all 0.5s ease;
             display: none;
             justify-self: center;
@@ -64,7 +74,16 @@
             width: 1000px;
             height: 712px;
             filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(330deg);
-        }     
+        } 
+        
+        .real-news-image.animated {
+            display: flex;
+            justify-self: center;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+            width: 1000px;
+            height: 712px;
+        } 
     </style>
 </head>
 
@@ -105,9 +124,25 @@
                         <div class="div">
                             {% if is_fake %}
                             <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
+                            
                             <script>
                                 window.onload = function() {
                                     var img = document.getElementById('fakeNewsImage');
+                                    img.classList.add('animated');
+                                    
+                                    setTimeout(function() {
+                                        img.classList.remove('animated');
+                                    }, 5000);
+                                }
+                            </script>
+                            {% endif %}
+
+                            {% if is_real %}
+                            <img id="realNewsImage" class="real-news-image" src="https://i.ibb.co/TqYtdV2/yay.webp" alt="Real News!">
+                            
+                            <script>
+                                window.onload = function() {
+                                    var img = document.getElementById('realNewsImage');
                                     img.classList.add('animated');
                                     
                                     setTimeout(function() {

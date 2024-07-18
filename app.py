@@ -121,7 +121,8 @@ def results():
             prediction = predict_fake_news(article_content, model, vectorizer)
             result = "Real" if prediction == 1 else "Fake"
             is_fake = prediction == 0  # Add this line
-            return render_template('results.html', url=url, result=result, is_fake=is_fake)  # Add is_fake here
+            is_real = prediction == 1
+            return render_template('results.html', url=url, result=result, is_fake=is_fake, is_real=is_real)  # Add is_fake here
         else:
             return render_template('results.html', url=url, result="Unable to analyze")
 
