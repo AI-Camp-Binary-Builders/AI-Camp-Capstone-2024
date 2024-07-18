@@ -25,6 +25,10 @@
             min-width: 200px;
             padding: 200px;
             background-color: rgba(13, 110, 253, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
         @keyframes shake {
@@ -43,17 +47,22 @@
 
         .fake-news-image {
             transition: all 0.5s ease;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            display: none;
+            justify-self: center;
+        }
+
+        .div{
+            display: grid;
+            place-content: center;
         }
 
         .fake-news-image.animated {
+            display: flex;
+            justify-self: center;
             animation: shake 0.5s;
             animation-iteration-count: infinite;
             width: 1000px;
-            height: 1000px;
+            height: 712px;
             filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(330deg);
         }     
     </style>
@@ -93,7 +102,7 @@
                     <div class="text-center text-white">
                         <!-- Page heading-->
                         <h1 class="mb-5">Results:</h1>
-                        <div>
+                        <div class="div">
                             {% if is_fake %}
                             <h2>This article is likely to be fake news!</h2>
                             <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
@@ -104,7 +113,7 @@
                                     
                                     setTimeout(function() {
                                         img.classList.remove('animated');
-                                    }, 10000);
+                                    }, 5000);
                                 }
                             </script>
                             {% endif %}
