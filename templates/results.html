@@ -71,7 +71,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg shadow bg-body-tertiary transbox blur-nav ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="bi bi-journal-text pe-1"></i>The Real Deal</a>
+            <a class="navbar-brand" href="/#"><i class="bi bi-journal-text pe-1"></i>The Real Deal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -89,7 +89,7 @@
                         <a class="nav-link active" href="/#timeline">Timeline</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link active" href="/#aboutus">About</a>
+                        <a class="nav-link active" href="/#aboutus">Meet The Team</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +104,6 @@
                         <h1 class="mb-5">Results:</h1>
                         <div class="div">
                             {% if is_fake %}
-                            <h2>This article is likely to be fake news!</h2>
                             <img id="fakeNewsImage" class="fake-news-image" src="https://i.ibb.co/Vp2kSCG/stahp.jpg" alt="Fake News Alert">
                             <script>
                                 window.onload = function() {
@@ -119,7 +118,7 @@
                             {% endif %}
 
                             <p>Analyzed URL: {{ url }}</p>
-                            <p>The news is... {{ result }}</p>
+                            <h2>The news is... {{ result }}<h2>
                             <!-- <script>
                                 function runPythonScript() {
                                     var pythonScriptPath = "main.py";
